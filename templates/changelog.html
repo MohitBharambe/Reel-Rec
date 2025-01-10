@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}
+Updates
+{% endblock title %}
+{% block barba_namespace %}
+    changelog-section
+{% endblock barba_namespace %}
+{% block carousel_1 %}{% endblock carousel_1 %}
+{% block carousel_2 %}{% endblock carousel_2 %}
+
+{% block form %}
+<!-- Updates Page -->
+<section class="bg-gray-900 text-pruple-500">
+    <div class="container flex flex-col justify-center p-4 mx-auto md:p-8">
+        <h2 class="mb-10 text-3xl font-bold text-white leading text-center sm:text-5xl">Reel Rec Updates</h2>
+        <div class="flex flex-col divide-y py-12 sm:px-8 lg:px-12 xl:px-32 divide-gray-700">
+            {% for update  in changelog %}
+            
+          <details>
+              <summary class="py-2 outline-none cursor-pointer focus:underline text-purple-500">{{ update.title }}
+            </summary>
+            <div class="px-4 pb-4 text-white">
+              <p>{{ update.description }}</p>
+              <p>{{ update.date }}</p>
+            </div>
+          </details>
+          {% endfor %}
+      </div>
+    </div>
+</section>
+{% endblock form %}

@@ -1,0 +1,65 @@
+{% extends "./../base.html" %}
+{% block title %}
+    Change Password
+{% endblock title %}
+{% block barba_namespace %}
+    change_pass-section
+{% endblock barba_namespace %}
+{% load widget_tweaks %}
+{% block carousel_2 %}{% endblock carousel_2  %}
+          <!-- Form -->
+           {% block form %}
+          <div class="w-1/2 ml-auto flex flex-col justify-center px-6 py-12 lg:px-8 text-gray-400 bg-gray-900">
+            <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+                <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-100">Change Password</h2>
+            </div>
+
+            <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+                <form class="space-y-6" method="post"> 
+                    {% csrf_token %}
+                    <div>
+                        <label for="{{ form.old_password.id_for_label }}" class="block text-sm font-medium leading-6 text-gray-100">Current Password </label>
+                        <div class="mt-2">
+                            {{ form.old_password|add_class:field_class }}
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex items-center justify-between">
+                            <label for="{{ form.new_password1.id_for_label }}"
+                                class="block text-sm font-medium leading-6 text-gray-100">New Password</label>
+ 
+                        </div>
+                        <div class="mt-2">
+                            {{ form.new_password1|add_class:field_class }}
+                        </div>
+                    </div>
+                    <div>
+                        <label for="{{ form.new_password2.id_for_label }}" class="block text-sm font-medium leading-6 text-gray-100">New Password </label>
+                        <div class="mt-2">
+                            {{ form.new_password2|add_class:field_class }}
+                        </div>
+                    </div>
+                    <div>
+                        <button type="submit"
+                            class="{{ button_class }}">Change my Password</button>
+                    </div>
+                    {% if form.errors %}
+                        <div class="text-red-500 mt-4">
+                            <ul>
+                                {% for field in form %}
+                                    {% for error in field.errors %}
+                                        <li>{{ error }}</li>
+                                    {% endfor %}
+                                {% endfor %}
+                                {% for error in form.non_field_errors %}
+                                    <li>{{ error }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endblock form %}

@@ -1,0 +1,7 @@
+.venv/
+.env
+__pycache__/
+*.pyc
+reel_rec-cache/
+model/movies_list.joblib
+model/similars_list.joblib

@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block title %}
+Recommendations
+{% endblock title %}
+{% block barba_namespace %}
+    rrec-section
+{% endblock barba_namespace %}
+{% block carousel_1 %}
+{% endblock carousel_1 %}
+{% block carousel_2 %}
+{% endblock carousel_2 %}
+{% block form %}
+<!--  -->
+<section class="text-gray-400 bg-gray-900 body-font">
+    <div class="container px-5 py-24 mx-auto">
+        {% if not recommendations %}
+        <h2 class="text-center font-medium text-2xl animate-this">Select 3 or more movies you're familiar with </h2>
+        <br>
+ <!-- Movie Selection Cards -->
+      <div class="text-center">
+        <form method="post">
+            {% csrf_token %}       
+            <div class="selection-movies-cards">
+                {% for movie in random_movies %}
+                <div class="selection-movies">
+                    <input type="checkbox" class="selection-checkbox "name="titles" value="{{ movie.title }}" id="card_{{ forloop.counter }}">
+                    <label for="card_{{ forloop.counter }}">
+                        <div class="selection-card">
+                            <div class="selection-movie-img">
+                                <img src="{{ movie.poster_url }}" alt="Poster for {{ movie.title }}">
+                            </div>
+                            <h2 class="title">{{ movie.title }}</h2>
+                        </div>
+                    </label>
+                </div>
+                {% endfor %}
+            </div>
+            <button type="submit" id="get-recommendations" class="rec-button inline-flex text-white bg-purple-600 border-2 py-4 px-1 focus:outline-none hover:bg-purple-500 rounded text-lg animate-this">Get Recommendations</button>
+        </form>
+    </div>    
+</div>
+</section>
+<!--  -->
+{% else %}
+<section class="text-gray-400 body-font bg-gray-900" style="margin-top: -150px;">
+    <div class="container px-5 py-24 mx-auto">
+        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-center animate-this">Here are some Recommendations!</h1>
+    </div>
+ <!-- Movie Recommendations Cards -->
+    <div class="cards">
+        {% for rec in recommendations %}
+        <div class="main_card animate-this">
+            <div class="card_left">
+                <div class="rec-movie_name">
+                    <h1>{{ rec.title }}</h1>
+                    <div class="card_catg">
+                        <p class="PG">{{ rec.certificate }}</p>
+                        <p class="year">{{ rec.release_date }}</p>
+                        <p class="genre">{{ rec.genre }}</p>
+                        <p class="ratings">{{ rec.rating }}/10</p>
+                    </div>
+                    <p class="descriptions">{{ rec.overview }}</p>
+                </div>
+            </div>
+            <div class="rec-poster">
+                <img src="{{ rec.poster_url }}" alt="Poster for {{ rec.title }}">
+                <div class="trailer-overlay">
+                    <div class="trailer-url">
+                        <a href="https://www.youtube.com/results?search_query={{ rec.title }}+trailer" target="_blank">
+                            <div class="img">
+                                <img src="https://www.svgrepo.com/show/13671/youtube.svg" width="80px" height="80px" alt="YouTube">
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+{% include "./partials/_topnavigation.html" %}
+{% endblock form %}

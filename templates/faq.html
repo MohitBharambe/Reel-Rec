@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% block title %}
+FAQ's
+{% endblock title %}
+{% block barba_namespace %}
+    faq-section
+{% endblock barba_namespace %}
+{% block carousel_1 %}{% endblock carousel_1 %}
+{% block carousel_2 %}{% endblock carousel_2 %}
+{% block form %}
+<!-- FAQ's Page -->
+    <section class="bg-gray-900 text-pruple-500">
+      <div class="container flex flex-col justify-center p-4 mx-auto md:p-8">
+        <h2 class="mb-12 text-4xl font-bold text-white leadi text-center sm:text-5xl">Frequently Asked
+          Questions</h2>
+        <div class="flex flex-col divide-y py-12 sm:px-8 lg:px-12 xl:px-32 divide-gray-700">
+          <details>
+            <summary class="py-2 outline-none cursor-pointer focus:underline text-purple-500">What is Reel Rec?
+            </summary>
+            <div class="px-4 pb-4 text-white">
+              <p>Reel Rec is a Movie Recommendation AI which recommends movies to its users based on their
+                preferences.</p>
+            </div>
+          </details>
+          <details>
+            <summary class="py-2 outline-none cursor-pointer focus:underline text-purple-500">How to use it?
+            </summary>
+            <div class="px-4 pb-4 text-white">
+              <p>That's a straightforward process! Simply navigate to the <a href="{% url "rrec" %}"
+                  data-barba-prevent="self"><u>recommendations page</u></a>
+                and conduct a search for a movie you're familiar with. You'll receive recommendations for similar movies
+                based on your search.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary class="py-2 outline-none cursor-pointer focus:underline text-purple-500">What is a Recommendation
+              AI?
+            </summary>
+            <div class="px-4 pb-4 text-white">
+              <p>A Recommendation AI or a recommendation system is an artificial intelligence algorithm, that uses Big
+                Data to suggest or recommend additional products to users. these recommendations can be based on
+                various
+                criterias, including search history, demographic information, and other factors. Popular Tech Giants
+                like Netflix and Amazon use recommendation systems to enhance user experience by providing
+                personalized
+                content suggestions based on their viewing or purchasing history.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary class="py-2 outline-none cursor-pointer focus:underline text-purple-500">Why the name 'Reel Rec'?
+            </summary>
+            <div class="px-4 pb-4 text-white">
+              <p>The AI is named Reel Rec because it encapsulates the core idea and purpose of the system. 'Reel' is a
+                term commonly associated with movies and cinema, and 'Rec' is a short form of 'recommendation.' The
+                combination of these words signifies that the AI is designed to recommend movies to users.</p>
+            </div>
+          </details>
+          <details>
+            <summary class="py-2 outline-none cursor-pointer focus:underline text-purple-500">How Accurate are the
+              Recommendations?</summary>
+            <div class="px-4 pb-4 space-y-2 text-white">
+              <p>The Recommendations are entirely determined by the user's movie preferences. When a user searches for
+                Action Movies, Reel Rec will suggest similar Action Movies, and the same principle applies to other
+                genres
+                as well.</p>
+            </div>
+          </details>
+          <details>
+            <summary class="py-2 outline-none cursor-pointer focus:underline text-purple-500"> Why was I unable to
+              find
+              the movie I was searching for?
+            </summary>
+            <div class="px-4 pb-4 space-y-2 text-white">
+              <p>We acknowledge that you were unable to find the movie you were searching for. However, please note
+                that
+                our database currently boasts a collection of over 10,000 movies. We are continuously updating our
+                database, so the movie you're looking for may be available soon.</p>
+            </div>
+          </details>
+          <details>
+            <summary class="py-2 outline-none cursor-pointer focus:underline text-purple-500">Does Reel Rec recommends
+              TV
+              Shows?
+            </summary>
+            <div class="px-4 pb-4 space-y-2 text-white">
+              <p>No, at the moment, Reel Rec only includes movies. However, we have plans to expand our content to
+                include
+                TV shows and documentaries in the future.
+              </p>
+            </div>
+          </details>
+          <details>
+            <summary class="py-2 outline-none cursor-pointer focus:underline text-purple-500">How do i report a problem?
+            </summary>
+            <div class="px-4 pb-4 space-y-2 text-white">
+              <p>You can report the problem through the <a href="{% url "contact" %}"><u>Contact page</u>.</a></p>
+              <p>
+              </p>
+            </div>
+          </details>
+          </a>
+          </details>
+        </div>
+      </div>
+    </section>
+{% endblock form %}

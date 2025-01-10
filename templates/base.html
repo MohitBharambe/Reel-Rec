@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Reel Rec is a Movie Recommendation AI designed to change the way movie enthusiasts discover and enjoy  favorite films.">
+    <meta name="keywords" content="Reel Rec, Movie Recommendation, AI, Movie Enthusiasts, Favorite Films, Movie Recommendation AI, Movie recommendation system, Python, Django">
+    <meta name="author" content="Mohit Bharambe">
+    <title>Reel Rec | {% block title %}
+    	Base Title
+    {% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script src="{% static 'js/script.js' %}"></script>
+    <!-- CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://unpkg.com/@barba/core"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
+</head>
+<body data-barba="wrapper">
+
+{% include "./partials/_header.html" %} 
+
+{% block carousel_1 %}
+<div class="flex min-h-screen">
+     <section class="w-1/2 flex bg-gray-900">
+        <div class="scroll-holder">
+            <div class="scroll-tray">
+                {% for id, poster_url in posters.items %}
+                <div>
+                    <img src="{{ poster_url }}" alt="Poster for movie ID {{ id }}" loading="lazy">
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section> 
+    {% endblock carousel_1 %}
+
+    {% block carousel_2 %}
+        <section class="flex bg-gray-900">
+           <div class="scroll-holder-2">
+               <div class="scroll-tray-2">
+                   {% for id, backdrops_url in first_half %}
+                   <div>
+                       <img src="{{ backdrops_url }}" alt="Backdrop for movie ID {{ id }}" loading="lazy">
+                   </div>
+                   {% endfor %}
+               </div>
+               <div class="scroll-tray-2">
+                {% for id, backdrops_url in second_half %}
+                <div>
+                    <img src="{{ backdrops_url }}" alt="Backdrop for movie ID {{ id }}" loading="lazy">
+                </div>
+                {% endfor %}
+            </div>
+               
+           </div>
+       </section> 
+       {% endblock carousel_2 %}
+
+{% block form %}
+<h1>base block desgined for form</h1>
+{% endblock form  %}
+
+{% include "./partials/_footer.html" %}
+</body>
+</html>

@@ -1,0 +1,67 @@
+{% extends "./../base.html" %}
+{% block title %}
+    Sign In
+{% endblock title %}
+{% block barba_namespace %}
+    signin-section
+{% endblock barba_namespace %}
+{% load widget_tweaks %}
+{% block carousel_2 %}{% endblock carousel_2  %}
+{% block form %}
+<!-- Form -->
+          <div class="w-1/2 ml-auto flex flex-col justify-center px-6 py-12 lg:px-8 text-gray-400 bg-gray-900">
+            <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+                <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-100">Sign In to your account</h2>
+            </div>
+
+            <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+                <form class="space-y-6" method="post"> 
+                    {% csrf_token %}
+                    <div>
+                        <label for="{{ form.username.id_for_label }}" class="block text-sm font-medium leading-6 text-gray-100">Username </label>
+                        <div class="mt-2">
+                            {{ form.username|add_class:field_class }}
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex items-center justify-between">
+                            <label for="{{ form.password.id_for_label }}"
+                                class="block text-sm font-medium leading-6 text-gray-100">Password</label>
+                            <div class="text-sm">
+                                <a href="{% url 'password_reset' %}"><p>Forgot Password?</p></a>
+                            </div>
+                        </div>
+                        <div class="mt-2">
+                            {{ form.password|add_class:field_class}}
+                        </div>
+                    </div>
+                    <div>
+                        <button type="submit"
+                            class="{{ button_class }}">Sign
+                            In</button>
+                    </div>
+                    {% if form.errors %}
+                        <div class="text-red-500 mt-4">
+                            <ul>
+                                {% for field in form %}
+                                    {% for error in field.errors %}
+                                        <li>{{ error }}</li>
+                                    {% endfor %}
+                                {% endfor %}
+                                {% for error in form.non_field_errors %}
+                                    <li>{{ error }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                </form>       
+                <p class="mt-2 text-center text-sm text-gray-500">
+                    Don't Have a account?
+                    <a href="{% url 'signup' %}" class="font-semibold leading-6 text-purple-500 hover:text-purple-500">SignUp</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    {% endblock form %}

@@ -1,0 +1,82 @@
+{% extends "./../base.html" %}
+{% block title %}
+    Sign Up
+{% endblock title %}
+{% block barba_namespace %}
+    signup-section
+{% endblock barba_namespace %}
+{% load widget_tweaks %}
+{% block carousel_2 %}{% endblock carousel_2  %}
+          <!-- Form -->
+           {% block form %}
+          <div class="w-1/2 ml-auto flex flex-col justify-center px-6 py-12 lg:px-8 text-gray-400 bg-gray-900">
+            <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+                <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-100">Sign Up for
+                    a
+                    account</h2>
+            </div>
+
+            <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+                <form class="space-y-6" method="post"> 
+                    {% csrf_token %}
+                    <div>
+                        <label for="{{ form.username.id_for_label }}" class="block text-sm font-medium leading-6 text-gray-100">Username </label>
+                        <div class="mt-2">
+                            {{ form.username|add_class:field_class }}
+                        </div>
+                    </div>
+                    <div>
+                        <label for="{{ form.email.id_for_label }}" class="block text-sm font-medium leading-6 text-gray-100">Email
+                            address</label>
+                        <div class="mt-2">
+                            {{ form.email|add_class:field_class  }}
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex items-center justify-between">
+                            <label for="{{ form.password1.id_for_label }}"
+                                class="block text-sm font-medium leading-6 text-gray-100">Password</label>
+                        </div>
+                        <div class="mt-2">
+                            {{ form.password1|add_class:field_class }}
+                        </div>
+                        <div>
+                            <label for="{{ form.password2.id_for_label }}" class="block text-sm font-medium leading-6 text-gray-100">Confirm Password</label>
+                            <div class="mt-2">
+                                {{ form.password2|add_class:field_class }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <button type="submit"
+                            class="{{ button_class }}">Sign
+                            Up</button>
+                    </div>
+                    {% if form.errors %}
+                        <div class="text-red-500 mt-4">
+                            <ul>
+                                {% for field in form %}
+                                    {% for error in field.errors %}
+                                        <li>{{ error }}</li>
+                                    {% endfor %}
+                                {% endfor %}
+                                {% for error in form.non_field_errors %}
+                                    <li>{{ error }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                </form>
+                <p class="mt-2 text-center text-sm text-gray-500">
+                    By signing up, You agree to receive personalized Recommendations tailored to you.
+                </p>
+                <p class="mt-2 text-center text-sm text-gray-500">
+                    Have a account?
+                    <a href="{% url 'signin' %}" class="font-semibold leading-6 text-purple-500 hover:text-purple-500">SignIn</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    {% endblock form %}

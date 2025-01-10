@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load  widget_tweaks %}
+{% block title %}
+Contact Us
+{% endblock title %}
+{% block barba_namespace %}
+    contact-section
+{% endblock barba_namespace %}
+{% block carousel_1 %}{% endblock carousel_1 %}
+{% block carousel_2 %}{% endblock carousel_2 %}
+
+<!-- Form -->
+{% block form %}
+<section class="text-gray-400 bg-gray-900 body-font relative">
+    <div class="container px-5 py-24 mx-auto">
+        <div class="flex flex-col text-center w-full mb-12">
+            <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-white animate-this">Contact Us
+            </h1>
+            <p class="lg:w-2/3 mx-auto leading-relaxed text-base animate-this">Need any Help? or Want to Report
+                any problem?
+                Go
+                Ahead!</p>
+        </div>
+        <form class="space-y-6"method="POST">
+            {% csrf_token %}
+            <div class="lg:w-1/2 md:w-2/3 mx-auto">
+                <div class="flex flex-wrap -m-2">
+                    <div class="p-2 w-1/2">
+                        <div class="relative">
+                            <label for="{{contact_form.name.id_for_label}}" class="leading-7 text-sm text-gray-400">Name</label>
+                            {{ contact_form.name|add_class:field_class }}
+                        </div>
+                    </div>
+                    <div class="p-2 w-1/2">
+                        <div class="relative">
+                            <label for="{{contact_form.email.id_for_label}}" class="leading-7 text-sm text-gray-400">Email</label>
+                            {{ contact_form.email|add_class:field_class }}
+                        </div>
+                    </div>
+                    <div class="p-2 w-full">
+                        <div class="relative">
+                            <label for="{{contact_form.message.id_for_label}}" class="leading-8 text-sm text-gray-400">Message</label>
+                            <textarea id="message" name="message" required
+                                class="w-full bg-gray-800 bg-opacity-50 rounded border border-gray-700 focus:border-purple-500 focus:bg-gray-900 focus:ring-2 focus:ring-purple-900 h-32 text-base outline-none text-gray-100 py-1 px-3 resize-none leading-8 transition-colors duration-200 ease-in-out"></textarea>
+                        </div>
+                    </div>
+                    <div class="p-2 w-full">
+                        <button type="submit" id="submit-contact"
+                            class="transition ease-in-out delay-200 hover:-translate-y-1 hover:scale-110 duration-300 flex mx-auto text-white bg-purple-600 border-0 py-2 px-8 focus:outline-none hover:bg-purple-500 rounded text-lg">Submit</button></a>
+                    </div> 
+                    <div class="p-1 w-full pt-1 mt-6 border-gray-800 text-center">
+                        <p>OR</p>
+                        {% if messages %}
+            <div class="text-gray-400 mt-4 animate-this">
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li class="{{ message.tags }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+                    </div>
+                    <div class="p-2 w-full pt-8 mt-8 border-t border-gray-800 text-center">
+                        <div class="text-purple-400">
+                            <a class="text-purple-400" href="mailto:mohitbharambe0@outlook.com">Drop a email</a>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+        </form>
+</section>
+{% endblock form %}

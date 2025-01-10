@@ -1,0 +1,19 @@
+{% extends "./../base.html" %}
+{% block title %}
+    Password Changed
+{% endblock title %}
+{% block carousel_2 %}{% endblock carousel_2  %}
+{% block carousel_1 %}{% endblock carousel_1  %}
+
+{% block form %}
+<div class="px-6 py-20 lg:px-8 text-gray-400 bg-gray-900">
+    <div class="sm:mx-auto sm:w-full sm:max-w-sm py-20">
+        <h2 class="mt-20 text-center text-2xl font-bold  leading-9 tracking-tight text-gray-100">Password Successfully Changed !</h2>
+    </div>
+</div>
+<form method="post" class="flex items-center justify-center py-8 bg-gray-900" action="{% url 'signout' %}">
+    {% csrf_token %}
+    <button class="rounded-md bg-purple-600 px-2.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-purple-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500">Sign
+    In with New Password</button>
+</form>
+{% endblock form %}

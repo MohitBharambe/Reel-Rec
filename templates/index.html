@@ -1,0 +1,37 @@
+{%  extends 'base.html' %}
+{% block title %}
+HOME
+{% endblock title %}
+{% block barba_namespace %}
+    home-section
+{% endblock barba_namespace %}
+{% block carousel_1 %} 
+{% endblock carousel_1%}
+{% block form %}
+<!-- Main Section -->
+<section class="text-gray-400 bg-gray-900 body-font">
+    <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
+      <div class="text-center lg:w-2/3 w-full">
+        <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-white">Reel Rec</h1>
+        <p class="leading-relaxed mb-8">A Movie Recommendation AI crafted to Enhance the way audiences
+          discover their favorite films.</p>
+        <!-- Start, Sign up & Profile Buttons -->
+        <div class="flex justify-center">
+          <a href="{% url "rrec" %}"> <button
+              class="inline-flex text-white bg-purple-600 border-0 py-2 px-6 focus:outline-none hover:bg-purple-500 rounded text-lg animate-this button">Start</button>
+              {% if user.is_authenticated %}
+              <a href="{% url "profile" %}"> <button
+                class="ml-4 inline-flex text-gray-400 bg-gray-800 border-0 py-2 px-6 focus:outline-none hover:bg-purple-500 hover:text-white rounded text-lg animate-this button">Profile
+                </button>
+                </a>
+              {% else %}
+            <a href="{% url "signup" %}"> <button
+                class="ml-4 inline-flex text-gray-400 bg-gray-800 border-0 py-2 px-6 focus:outline-none hover:bg-purple-500 hover:text-white rounded text-lg animate-this button">Sign
+                up</button>
+                </a>
+                {% endif %}
+        </div>
+      </div>
+    </div>
+</section>
+{% endblock form %}

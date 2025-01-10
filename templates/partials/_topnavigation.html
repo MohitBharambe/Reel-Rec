@@ -1,0 +1,29 @@
+<!--  -->
+<button id="to-top-button" onclick="goToTop()" title="Go To Top"
+class="hidden fixed z-50 bottom-10 right-10 p-4 border-0 w-14 h-14 rounded-full shadow-md bg-purple-600 hover:bg-purple-500 text-white text-lg font-semibold transition-colors duration-200">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+  <path d="M12 4l8 8h-6v8h-4v-8H4l8-8z" />
+</svg>
+<span class="sr-only">Go to top</span>
+</button>
+
+<!-- Script -->
+<script>
+  var toTopButton = document.getElementById("to-top-button");
+if (toTopButton) {
+window.onscroll = function () {
+  if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+    toTopButton.classList.remove("hidden");
+  } else {
+    toTopButton.classList.add("hidden");
+  }
+};
+
+window.goToTop = function () {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+};
+}
+</script>
