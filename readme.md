@@ -20,17 +20,33 @@ Reel Rec is a content-based recommendation AI developed as a web application usi
 Django & Tailwind CSS for smooth user experience. Users also signup and receive movie recommendations by simply selecting a movie they're familiar with without restrictions on genre, actor, release date, or film industry & receive Personalized Recommendations. After receiving the recommendations, users have the option to view movie details, watch the trailer through YouTube.
 
 ## Requirement Specifications / Tech Stack
-- Languages: **Python, Javascript**
-- Frameworks: **Tailwind CSS & Django** 
-- Database: **MySQL**
-- API: **TMDB API** 
+- Languages: [**Python**](https://www.python.org/downloads/), [**Javascript**](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- Frameworks: [**Tailwind CSS**](https://tailwindcss.com/docs/installation/play-cdn) & [**Django**](https://www.djangoproject.com/) 
+- Database: [**MySQL**](https://dev.mysql.com/downloads/)
+- Libraries: [**Barba JS**](https://barba.js.org/docs/getstarted/install/) & [**GSAP**](https://gsap.com/docs/v3/Installation)
+- API: [**TMDB API**](https://developer.themoviedb.org/reference/intro/getting-started)
 
 ## Installation
-### Installation Instructions
+#### There are two ways to setup Reel-Rec on your local machine.
+### 1. Easy Install using Batch Script [*Windows only*] (**Recommended**)
 
 1. Clone the repository:
+
     ```sh
     git clone https://github.com/MohitBharambe/Reel-Rec.git
+    ```
+2. Run the following command in the terminal:
+    ```sh
+    Reel-Rec\install.bat
+    ```
+3. The Script will automatically create a virtual environment, install the required dependencies & start the app.
+
+### 2. Manual Installation [*Windows, MacOS, Linux*] 
+1. Clone the repository:
+
+    ```sh
+    git clone https://github.com/MohitBharambe/Reel-Rec.git
+    cd Reel-Rec
     ```
 2. Create & Activate a Virtual Environment (optional):
     ```sh
@@ -69,7 +85,7 @@ Django & Tailwind CSS for smooth user experience. Users also signup and receive 
     python manage.py runserver
     ```
 10. If the shell output is Similar to the one below , The app can now be accessed at `http://127.0.0.1:8000`
-    ```python
+    ```sh
     Watching for file changes with StatReloader
     Performing system checks...
 
@@ -105,8 +121,8 @@ This product uses the TMDB API but is not endorsed or certified by TMDB.
 - [Dataset Used ](https://www.kaggle.com/datasets/ahsanaseer/top-rated-tmdb-movies-10k)
 
 ## Planned Future Updates
-- Reel Rec has planned support to implement a collaborative-based approach for recommendations.
 - Get Recommendations based on User's Mood.
+- Add a feature to save favorite movies.
 
 ## Contributing
 
