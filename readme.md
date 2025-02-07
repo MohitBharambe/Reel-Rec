@@ -14,7 +14,8 @@
 - [Contributing](#contributing)
 - [Contact](#contact)
 
-![Home](media/screenshots/home.png)
+![home](https://github.com/user-attachments/assets/4e019661-b409-47b0-b6cd-40abcc26d122)
+
 # Overview
 Reel Rec is a content-based recommendation AI developed as a web application using
 Django & Tailwind CSS for smooth user experience. Users also signup and receive movie recommendations by simply selecting a movie they're familiar with without restrictions on genre, actor, release date, or film industry & receive Personalized Recommendations. After receiving the recommendations, users have the option to view movie details, watch the trailer through YouTube.
@@ -35,9 +36,10 @@ Django & Tailwind CSS for smooth user experience. Users also signup and receive 
     ```sh
     git clone https://github.com/MohitBharambe/Reel-Rec.git
     ```
-2. Run the following command in the terminal:
+2. Run the following commands in the terminal:
     ```sh
-    Reel-Rec\install.bat
+    cd Reel-Rec
+    install.bat
     ```
 3. The Script will automatically create a virtual environment, install the required dependencies & start the app.
 
@@ -95,17 +97,21 @@ Django & Tailwind CSS for smooth user experience. Users also signup and receive 
     Starting development server at http://127.0.0.1:8000/
     Quit the server with CTRL-BREAK.
     ```
-
+    
 ## Screenshots
 ### 1 - Select familiar Movies
- ![rrec](media/screenshots/rrec-1.png)
+ ![rrec-1](https://github.com/user-attachments/assets/2e6981e9-5af1-4f59-a3ee-7aff4d88b9a1)
+
 ### 2 - Get Recommendations
-![rrec1](media/screenshots/rrec-4.png)
+![rrec-4](https://github.com/user-attachments/assets/1aab5110-59ee-44ee-b62c-9492fcffff1b)
+
+
 ### FAQ Page
-![rrec1](media/screenshots/faq.png)
+![faq](https://github.com/user-attachments/assets/7f4579ad-e61d-4c63-881e-5010addb5a7b)
 
 ## Usage
-![GIF](media/gifs/rrec-demonstration1.gif)
+![rrec-demonstration1](https://github.com/user-attachments/assets/c6135aca-4305-47aa-b6bc-9736b2066e5a)
+
 
 ## License
 ![License](https://img.shields.io/github/license/MohitBharambe/Reel-Rec)
